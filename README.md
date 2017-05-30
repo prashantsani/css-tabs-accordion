@@ -12,7 +12,6 @@ Features:
 4. Variable width of Links/buttons
 5. No fixed heights, content can grow naturally
 6. Support for variable number of tabs
-7. 
 
 
 File: demo2 -  With CSS Animations.html
