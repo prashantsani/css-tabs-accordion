@@ -1,0 +1,145 @@
+ /* =============================================================================
+	
+	Prashant Sani Test
+	
+	Color Palette
+	Color1 : rgb(191,191,191)
+	Color2 : rgb(127,127,127)
+	Color3 : rgb(255,255,255)
+	Color4 : rgb(64,64,64)
+	Color5 : rgb(229,229,229)
+
+
+	Typography Set using : 
+	Modular Scale
+	http://www.modularscale.com/?1&em&1.2
+
+
+	Index
+
+	1) Reset, Fonts
+	2) Content
+	3) Responsive
+	==========================================================================  */
+
+/* =============================================================================
+	 Resets and Fonts
+	 ========================================================================== */
+* {margin:0; padding:0;}
+html{
+	font-family: "Open Sans", "Helvetica", sans-serif;
+	background: rgb(255,255,255);
+	color: rgb(64,64,64);
+	font-size: 16px;
+}
+.sectionHead,
+.sectionSubHead{
+	text-align:center; 
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.sectionHead{
+	margin: 4% auto 2% auto;
+	font-size: 2.074rem;
+}
+.sectionSubHead{
+	font-size: 1.728rem;
+}
+/* =============================================================================
+	 Content
+	 ========================================================================== */
+input[name="tabs"]{
+	display: none;
+}
+.tabWrap{
+	width:800px;
+	margin:5% auto;
+	max-width: 80%
+}
+.tabWrap label{
+	cursor: pointer;
+	font-size: 1.728rem;
+	padding: 0.335em 0.694em;
+	background: rgb(127,127,127);
+	display: inline-block;
+	margin-right: 0.335em;
+	color: white;
+	border:1px solid white;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.tabWrap input:checked + label{
+	color: rgb(127,127,127);
+	border:1px solid rgb(127,127,127);
+	background: white;
+}
+.tabWrap .mobileAccordionLink{
+	display: none
+}
+.tabWrap article p{
+	font-size: 1rem
+}
+.tabWrap article h1{
+	font-size: 1.728rem;
+}
+.tabWrap article{
+	display: none
+}
+#tabLinkMobile1:checked ~ #tabContent1,
+#tabLinkMobile2:checked ~ #tabContent2,
+#tabLinkMobile3:checked ~ #tabContent3,
+#tabLink1:checked ~ #tabContent1,
+#tabLink2:checked ~ #tabContent2,
+#tabLink3:checked ~ #tabContent3{
+	display: block;
+	margin: 1em 0
+}
+/* Demo2 --- with animations */
+.cssAnimsDemo label{
+	/* Transitioning all properties sometimes also animates 
+	padding, css bounding box, etc because of FOUT/FOIT */
+	transition: color 0.25s ease-in-out, border 0.25s ease-in-out, background 0.25s ease-in-out;
+	/* All browsers support unprefixed transitions now, so no vendor prifix added */
+}
+.cssAnimsDemo .tabWrap article{
+	display: block;
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: all 0.4s ease-in-out;
+}
+/*In real life scenario, I wouldnt use such high level of css specificity */
+.cssAnimsDemo #tabLinkMobile1:checked ~ #tabContent1,
+.cssAnimsDemo #tabLinkMobile2:checked ~ #tabContent2,
+.cssAnimsDemo #tabLinkMobile3:checked ~ #tabContent3,
+.cssAnimsDemo #tabLink1:checked ~ #tabContent1,
+.cssAnimsDemo #tabLink2:checked ~ #tabContent2,
+.cssAnimsDemo #tabLink3:checked ~ #tabContent3{
+	transition: all 0.3s 0.4s ease-in-out;
+	opacity: 1;
+	max-height: 100em /* no content would go longer than this */
+}
+/* =============================================================================
+	 Media Queries
+	 ========================================================================== */
+
+@media only screen and (max-width: 768px) {
+	html .tabWrap .mobileAccordionLink{
+		display: block
+	}
+	html .tabWrap .desktopTabLink{
+		display: none
+	}
+	.tabWrap label{
+		display: block;
+		width: 100%;
+		margin: 5px 0;
+	}
+}	 
+
+
+
+
+

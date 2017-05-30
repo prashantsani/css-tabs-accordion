@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS Responsive Tabs - Demo1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="simpleDemo">
+  <h1 class="sectionHead">CSS Tabs</h1>
+  <h2 class="sectionSubHead">Pure CSS Solution</h2>
+
+  <div class="tabWrap">
+    
+    <!-- Links for Desktop -->
+    <input id="tabLink1" type="radio" name="tabs">
+    <label for="tabLink1" class="desktopTabLink">HTML</label>
+
+    <input id="tabLink2" type="radio" name="tabs">
+    <label for="tabLink2" class="desktopTabLink">CSS</label>
+
+    <input id="tabLink3" type="radio" name="tabs">
+    <label for="tabLink3" class="desktopTabLink">JavaScript</label>
+
+
+  
+    <!-- Links for Mobile -->
+    <input id="tabLinkMobile1" type="radio" name="tabs">
+    <label for="tabLinkMobile1" class="mobileAccordionLink">HTML</label>
+    
+    <!-- Content -->
+    <article class="tabContent" id="tabContent1">
+      <h1>What is HTML?</h1>
+      <p>Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a webserver or from local storage and render them into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
+    </article>
+
+
+
+    <!-- Links for Mobile -->
+    <input id="tabLink2" type="radio" name="tabs">
+    <label for="tabLink2" class="mobileAccordionLink">CSS</label>
+    
+    <!-- Content -->
+    <article class="tabContent" id="tabContent2">
+      <h1>What is CSS?</h1>
+      <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language. Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.</p>
+    </article>
+    
+
+    <!-- Links for Mobile -->
+    <input id="tabLinkMobile3" type="radio" name="tabs">
+    <label for="tabLinkMobile3" class="mobileAccordionLink">JavaScript</label>
+
+    <!-- Content -->
+    <article class="tabContent" id="tabContent3">
+      <h1>What is JavaScript?</h1>
+      <p>JavaScript, often abbreviated as "JS", is a high-level, dynamic, untyped, and interpreted run-time language. It has been standardized in the ECMAScript language specification. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production; the majority of websites employ it, and all modern Web browsers support it without the need for plug-ins. JavaScript is prototype-based with first-class functions, making it a multi-paradigm language, supporting object-oriented, imperative, and functional programming styles. It has an API for working with text, arrays, dates and regular expressions, but does not include any I/O, such as networking, storage, or graphics facilities, relying for these upon objects made available by the host environment in which it is embedded.</p>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS Responsive Tabs - Demo2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="cssAnimsDemo">
+  <h1 class="sectionHead">CSS Tabs</h1>
+  <h2 class="sectionSubHead">Click On Any Link to dynamically Request content for the same</h2>
+
+  <div class="tabWrap">
+
+    <!-- Links for Desktop -->
+    <input id="tabLink1" type="radio" name="tabs">
+    <label for="tabLink1" class="desktopTabLink">HTML</label>
+
+    <input id="tabLink2" type="radio" name="tabs">
+    <label for="tabLink2" class="desktopTabLink">CSS</label>
+
+    <input id="tabLink3" type="radio" name="tabs">
+    <label for="tabLink3" class="desktopTabLink">JavaScript</label>
+
+    
+    <!-- Links for Mobile -->
+    <input id="tabLinkMobile1" type="radio" name="tabs">
+    <label for="tabLinkMobile1" class="mobileAccordionLink">HTML</label>
+    <article class="tabContent" id="tabContent1" data-url="html.json"></article>
+
+
+    <!-- Links for Mobile -->
+    <input id="tabLink2" type="radio" name="tabs">
+    <label for="tabLink2"  class="mobileAccordionLink">CSS</label>
+    <article class="tabContent" id="tabContent2" data-url="css.json"></article>
+
+    <!-- Links for Mobile -->
+    <input id="tabLink3" type="radio" name="tabs">
+    <label for="tabLink3" class="mobileAccordionLink">JavaScript</label>
+    <article class="tabContent" id="tabContent3" data-url="js.json"></article>
+
+    
+  </div>
+
+
+  <script src="js/vendor/jquery.js"></script>
+  <script>
+    
+      (function(w){
+            var visits = {
+                history:[],
+                pageState:{
+                    page:"",
+                    title:"",
+                    details:{}
+                },
+                init: function(href,title,details){ 
+                    if (window.history && window.history.pushState){
+                        window.history.replaceState(
+                            {page:href, title:title,details:details},
+                            title,
+                            href
+                        );
+                        this.history.push(href);
+                    }
+                },
+                add:function(href,title,details){
+                    if (window.history && window.history.pushState){
+
+                        window.history.pushState(
+                            {page:href, title:title,details:details},
+                            title,
+                            href
+                        );
+                        this.history.push(href);
+
+                        this.pageState = {
+                            page: href,
+                            title: title,
+                            details: details
+                        };
+                    }
+                },
+                hasBack: function(){
+                    return this.history.length>1
+                },
+                popstate: function(){ },
+                clear : function(){
+                    this.history = []
+                }
+
+          }
+
+          function loadSection(url, $target, isReverse){
+              $.ajax({
+                dataType: 'json',
+                url: url,
+                success: function(data){
+                    var href = "#!"+url.replace('.json','');
+                    $target.html(data.content);
+                    if(!isReverse){
+                      visits.add(href,url, {url:url})  
+                    }
+                    
+                },
+                error: function (){
+                    alert(url)
+                }
+              });
+          }
+
+
+          $('[name="tabs"]').on('change',function(){
+                var $this = $(this),
+                    id = $this.attr('id')
+                    index = id.substr(id.length - 1),
+                    $contentId = $("#tabContent"+index),
+                    url = $contentId.attr('data-url');
+
+                loadSection(url,$contentId)
+
+          })
+
+          
+          function loadSecDynamic(){
+            var toOpen = w.location.href.split('#!')[1],
+                $target = $("[data-url='"+toOpen+".json']"),
+                id = $target.attr('id'),
+                index = id.substr(id.length - 1);
+
+            $('#tabLink'+index+",#tabLinkMobile"+index).prop("checked", true)
+
+            loadSection(toOpen+".json",$target,"reverse")
+          }
+
+
+          //Initialising the currrent, next and prev sections
+          if(w.location.href.indexOf('#!')!==-1){
+              loadSecDynamic()
+          }else{
+              //Dont Load Any Section
+          }
+
+
+
+          visits.popstate = function(stateObj){
+            if (!(w.history && w.history.pushState)){
+                return true
+            }
+
+            loadSecDynamic()
+
+          }
+
+          if(!!(w.history && w.history.pushState)){
+            w.addEventListener('popstate',function(event){
+                console.log(event)
+                if(!event.state){
+                 return;
+                }
+                visits.popstate(event.state)
+            });
+          }
+          
+
+
+
+      })(window);
+
+  </script>
+</body>
+</html>
