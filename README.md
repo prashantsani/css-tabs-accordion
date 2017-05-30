@@ -2,6 +2,10 @@
 
 ##css-tabs-accordion
 
+Tutorial: Coming Soon on : prashantsani.com/spider/
+
+
+Code is stripped of any styling not meant for functionality. The main focus of CSS is to show functionality. 
 
 
 File: demo1 - Simple Demo.html
