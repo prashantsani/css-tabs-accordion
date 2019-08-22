@@ -1,6 +1,6 @@
-#Responsive CSS Tabs/Accordion 
+# Responsive CSS Tabs/Accordion 
 
-##css-tabs-accordion
+## css-tabs-accordion
 
 Tutorial: Coming Soon on : prashantsani.com/spider/
 
@@ -16,11 +16,14 @@ Features:
 4. Variable width of Links/buttons
 5. No fixed heights, content can grow naturally
 6. Support for variable number of tabs
+Link: https://prashantsani.github.io/css-tabs-accordion/code/demo1%20-%20Simple%20Demo.html
+
 
 
 File: demo2 -  With CSS Animations.html
 Features: 
 (Same as above: Adding in Animations)
+https://prashantsani.github.io/css-tabs-accordion/code/demo2%20-%20%20With%20CSS%20Animations.html
 
 
 File: demo3 -  With JS .html
@@ -30,6 +33,8 @@ File: demo3 -  With JS .html
 3. History Management (using History API).
 4. Default Back/Forward buttons work as per User Session History
 5. Loading tab content using URL (on Page Load)
+Link: https://prashantsani.github.io/css-tabs-accordion/code/demo3%20-%20Ajax%20and%20JavaScript.html
+
 
 
 
